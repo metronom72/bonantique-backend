@@ -4,7 +4,7 @@ class SubscriptionController < ApplicationController
     if @subscription.save
       render json: @subscription
     else
-      render json: @subscription.errors
+      render json: @subscription.errors, status: 400
     end
   end
 end
