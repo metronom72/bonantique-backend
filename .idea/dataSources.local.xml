@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="Rails BonAntiqueBE: test" uuid="11339e97-4524-404f-8da4-848951411bc7">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="POSTGRES" exact-version="0" />
+      <user-name>gardener</user-name>
+      <schema-mapping />
+    </data-source>
+    <data-source name="Rails BonAntiqueBE: production" uuid="0ab2f211-ab26-4710-9369-8c4e4ca00cdc">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="POSTGRES" exact-version="0" />
+      <user-name>gardener</user-name>
+      <schema-mapping />
+    </data-source>
+    <data-source name="Rails BonAntiqueBE: development" uuid="48c50bfb-b4f4-4f02-88cb-3143c6b98f46">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="POSTGRES" exact-version="0" />
+      <user-name>gardener</user-name>
+      <schema-mapping />
+    </data-source>
+  </component>
+</project>

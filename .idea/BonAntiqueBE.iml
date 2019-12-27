@@ -61,7 +61,10 @@
     <orderEntry type="library" scope="PROVIDED" name="msgpack (v1.3.1, ruby-2.7.0-p-1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="nio4r (v2.5.2, ruby-2.7.0-p-1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="nokogiri (v1.10.7, ruby-2.7.0-p-1) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="pg (v1.2.0, ruby-2.7.0-p-1) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="puma (v4.3.1, ruby-2.7.0-p-1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rack (v2.0.8, ruby-2.7.0-p-1) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rack-cors (v1.1.0, ruby-2.7.0-p-1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rack-test (v1.1.0, ruby-2.7.0-p-1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rails (v6.0.2.1, ruby-2.7.0-p-1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rails-dom-testing (v2.0.3, ruby-2.7.0-p-1) [gem]" level="application" />
@@ -71,6 +74,8 @@
     <orderEntry type="library" scope="PROVIDED" name="rb-fsevent (v0.10.3, ruby-2.7.0-p-1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rb-inotify (v0.10.1, ruby-2.7.0-p-1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="ruby_dep (v1.5.0, ruby-2.7.0-p-1) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="spring (v2.1.0, ruby-2.7.0-p-1) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="spring-watcher-listen (v2.0.1, ruby-2.7.0-p-1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sprockets (v4.0.0, ruby-2.7.0-p-1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sprockets-rails (v3.2.1, ruby-2.7.0-p-1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="thor (v1.0.1, ruby-2.7.0-p-1) [gem]" level="application" />

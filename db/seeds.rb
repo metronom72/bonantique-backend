@@ -5,3 +5,31 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+contacts = [
+    Contact.new(
+        link: 'https://instagram.com',
+        label: 'Instagram',
+        value: 'Instagram',
+        scope: 'socials',
+    ),
+    Contact.new(
+        link: 't.me/onepunchman_ep',
+        label: 'Telegram',
+        value: 'Telegram',
+        scope: 'socials',
+    ),
+    Contact.new(
+        link: 'https://vk.com',
+        label: 'VK',
+        value: 'VK',
+        scope: 'socials',
+        ),
+    Contact.new(
+        link: 'tel:+79999999999',
+        label: '+79999999999',
+        value: '+79999999999',
+        scope: 'phone',
+    ),
+]
+contacts.each{|contact| contact.save!}

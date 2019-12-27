@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_25_164134) do
+ActiveRecord::Schema.define(version: 2019_12_27_141551) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "contacts", force: :cascade do |t|
+    t.string "value", null: false
+    t.string "label", null: false
+    t.string "link"
+    t.string "scope", null: false
+    t.boolean "active", default: true, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["scope"], name: "index_contacts_on_scope"
+  end
 
   create_table "subscriptions", force: :cascade do |t|
     t.string "email", null: false
