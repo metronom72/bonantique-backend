@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_27_141551) do
+ActiveRecord::Schema.define(version: 2019_12_28_151915) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bond_specifications", force: :cascade do |t|
+    t.integer "bond_id", null: false
+    t.string "currency", null: false
+    t.string "amount", null: false
+    t.string "bond_serial"
+    t.string "bond_number"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["bond_id"], name: "index_bond_specifications_on_bond_id"
+  end
 
   create_table "contacts", force: :cascade do |t|
     t.string "value", null: false
@@ -24,6 +35,16 @@ ActiveRecord::Schema.define(version: 2019_12_27_141551) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["scope"], name: "index_contacts_on_scope"
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.string "title", null: false
+    t.text "description", null: false
+    t.decimal "prices", precision: 1000, scale: 2, default: [], null: false, array: true
+    t.date "valid_till"
+    t.boolean "available", default: true, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "subscriptions", force: :cascade do |t|
