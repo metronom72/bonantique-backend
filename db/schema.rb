@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2019_12_28_151915) do
     t.string "amount", null: false
     t.string "bond_serial"
     t.string "bond_number"
+    t.boolean "is_copy", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["bond_id"], name: "index_bond_specifications_on_bond_id"

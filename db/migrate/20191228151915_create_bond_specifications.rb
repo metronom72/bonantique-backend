@@ -8,6 +8,8 @@ class CreateBondSpecifications < ActiveRecord::Migration[6.0]
       t.string :bond_serial
       t.string :bond_number
 
+      t.boolean :is_copy, null: false, default: false
+
       t.timestamps
     end
   end
