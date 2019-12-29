@@ -9,15 +9,19 @@ class Bond < Product
            :amount,
            :bond_serial,
            :bond_number,
+           :is_copy,
            :currency=,
            :amount=,
            :bond_serial=,
            :bond_number=,
+           :is_copy=,
            to: :lazily_built_companion
   validates :currency,
             presence: true
   validates :amount,
             presence: true
+
+  default_scope { where(available: true) }
 
   private
   def lazily_built_companion
