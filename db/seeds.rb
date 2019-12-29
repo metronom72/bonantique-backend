@@ -24,12 +24,18 @@ contacts = [
         label: 'VK',
         value: 'VK',
         scope: 'socials',
-        ),
+),
+Contact.new(
+    link: 'tel:+79999999999',
+    label: '+79999999999',
+    value: '+79999999999',
+    scope: 'phone',
+),
     Contact.new(
-        link: 'tel:+79999999999',
-        label: '+79999999999',
-        value: '+79999999999',
-        scope: 'phone',
+        link: 'mailto:admin@bon-antique.com',
+        label: 'Support',
+        value: 'admin@bon-antique.com',
+        scope: 'email',
     ),
 ]
 contacts.each{|contact| contact.save!}
