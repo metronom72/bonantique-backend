@@ -17,10 +17,11 @@ ActiveRecord::Schema.define(version: 2019_12_29_194133) do
 
   create_table "bond_specifications", force: :cascade do |t|
     t.integer "bond_id", null: false
-    t.string "currency", null: false
-    t.string "amount", null: false
+    t.string "bond_currency", null: false
+    t.string "bond_value", null: false
     t.string "bond_serial"
     t.string "bond_number"
+    t.string "bond_country", default: [], null: false, array: true
     t.boolean "is_copy", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -54,6 +55,8 @@ ActiveRecord::Schema.define(version: 2019_12_29_194133) do
     t.decimal "prices", precision: 1000, scale: 2, default: [], null: false, array: true
     t.date "valid_till"
     t.boolean "available", default: true, null: false
+    t.integer "amount", default: 1, null: false
+    t.string "product_type", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -5,7 +5,7 @@ class Category < ApplicationRecord
             uniqueness: true
 
   has_and_belongs_to_many :products,
-                          join_table: :products_categories
+                          join_table: 'products_categories'
 
   belongs_to :parent_category,
              class_name: 'Category',

@@ -5,20 +5,21 @@ class Bond < Product
           dependent: :destroy,
           autosave: true
 
-  delegate :currency,
-           :amount,
+  delegate :bond_currency,
+           :bond_value,
            :bond_serial,
            :bond_number,
            :is_copy,
-           :currency=,
-           :amount=,
+
+           :bond_currency=,
+           :bond_value=,
            :bond_serial=,
            :bond_number=,
            :is_copy=,
            to: :lazily_built_companion
-  validates :currency,
+  validates :bond_currency,
             presence: true
-  validates :amount,
+  validates :bond_value,
             presence: true
 
   default_scope { where(available: true) }
