@@ -26,7 +26,27 @@ class CategoriesController < ApplicationController
     render json: { data: @categories }
   end
   def update
+    if params[:admin]
+      @category = Category.unscoped.find_by slug: params[:id]
 
+      if @category
+        if @category.update update_category_params
+          render json: { data: @category }
+
+          return
+        else
+          render json: { errors: @category.errors }, status: 400
+
+          return
+        end
+      else
+        render json: { errors: { api: "Not found" }}, status: 404
+
+        return
+      end
+    end
+
+    render json: {errors: { api: 'Not Allowed' }}, status: 405
   end
   def delete
 
