@@ -1,20 +1,17 @@
 class CategoriesController < ApplicationController
+  before_action :admin?, only: [:create, :update, :delete]
   def create
-    if params[:admin]
-      @category = Category.new new_category_params
+    @category = Category.new new_category_params
 
-      if @category.save
-        render json: { data: @category }, status: 201
+    if @category.save
+      render json: { data: @category }, status: 201
 
-        return
-      else
-        render json: { errors: @category.errors }, status: 400
+      return
+    else
+      render json: { errors: @category.errors }, status: 400
 
-        return
-      end
+      return
     end
-
-    render json: {errors: { api: 'Not Allowed' }}, status: 405
   end
   def index
     if params[:admin]
@@ -26,27 +23,23 @@ class CategoriesController < ApplicationController
     render json: { data: @categories }
   end
   def update
-    if params[:admin]
-      @category = Category.unscoped.find_by slug: params[:id]
+    @category = Category.unscoped.find_by slug: params[:id]
 
-      if @category
-        if @category.update update_category_params
-          render json: { data: @category }
+    if @category
+      if @category.update update_category_params
+        render json: { data: @category }
 
-          return
-        else
-          render json: { errors: @category.errors }, status: 400
-
-          return
-        end
+        return
       else
-        render json: { errors: { api: "Not found" }}, status: 404
+        render json: { errors: @category.errors }, status: 400
 
         return
       end
-    end
+    else
+      render json: { errors: { api: "Not found" }}, status: 404
 
-    render json: {errors: { api: 'Not Allowed' }}, status: 405
+      return
+    end
   end
   def delete
 
@@ -68,5 +61,10 @@ class CategoriesController < ApplicationController
         :parent_category_id,
         :active
     )
+  end
+  def admin?
+    unless params[:admin]
+      render json: {errors: { api: 'Not Allowed' }}, status: 405
+    end
   end
 end

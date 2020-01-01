@@ -1,38 +1,28 @@
 class ContactsController < ApplicationController
+  before_action :admin?, only: [:create, :update, :delete]
+
   def create
-    if params[:admin]
-      @contact = Contact.new new_contact_params
+    @contact = Contact.new new_contact_params
 
-      if @contact.save
-        render json: { data: @contact }, status: 201
-      else
-        render json: { errors: @contact.errors }, status: 400
-      end
-
-      return
+    if @contact.save
+      render json: { data: @contact }, status: 201
+    else
+      render json: { errors: @contact.errors }, status: 400
     end
-
-    render json: {errors: { api: 'Not Allowed' }}, status: 405
   end
 
   def update
-    if params[:admin]
-      @contact = Contact.unscoped.find_by id: params[:id]
+    @contact = Contact.unscoped.find_by id: params[:id]
 
-      if @contact
-        if @contact.update update_contact_params
-          render json: { data: @contact }
-        else
-          render json: { errors: @contact.errors }, status: 400
-        end
+    if @contact
+      if @contact.update update_contact_params
+        render json: { data: @contact }
       else
-        render json: { errors: { api: "Not found" }}, status: 404
+        render json: { errors: @contact.errors }, status: 400
       end
-
-      return
+    else
+      render json: { errors: { api: "Not found" }}, status: 404
     end
-
-    render json: {errors: { api: 'Not Allowed' }}, status: 405
   end
 
   def index
@@ -46,21 +36,16 @@ class ContactsController < ApplicationController
   end
 
   def delete
-    if params[:admin]
-      @contact = Contact.unscoped.find_by id: params[:id]
-      if @contact
-        if @contact.delete
-          render status: 204
-        else
-          render json: { errors: @contact.errors }, status: 400
-        end
+    @contact = Contact.unscoped.find_by id: params[:id]
+    if @contact
+      if @contact.delete
+        render status: 204
       else
-        render json: { errors: { api: "Not found" }}, status: 404
+        render json: { errors: @contact.errors }, status: 400
       end
-      return
+    else
+      render json: { errors: { api: "Not found" }}, status: 404
     end
-
-    render json: {errors: { api: 'Not Allowed' }}, status: 405
   end
 
   private
@@ -81,5 +66,10 @@ class ContactsController < ApplicationController
         :scope,
         :active
     )
+  end
+  def admin?
+    unless params[:admin]
+      render json: {errors: { api: 'Not Allowed' }}, status: 405
+    end
   end
 end
