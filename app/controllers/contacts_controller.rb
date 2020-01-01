@@ -5,13 +5,11 @@ class ContactsController < ApplicationController
 
       if @contact.save
         render json: { data: @contact }, status: 201
-
-        return
       else
         render json: { errors: @contact.errors }, status: 400
-
-        return
       end
+
+      return
     end
 
     render json: {errors: { api: 'Not Allowed' }}, status: 405
@@ -24,18 +22,14 @@ class ContactsController < ApplicationController
       if @contact
         if @contact.update update_contact_params
           render json: { data: @contact }
-
-          return
         else
           render json: { errors: @contact.errors }, status: 400
-
-          return
         end
       else
         render json: { errors: { api: "Not found" }}, status: 404
-
-        return
       end
+
+      return
     end
 
     render json: {errors: { api: 'Not Allowed' }}, status: 405
@@ -59,16 +53,14 @@ class ContactsController < ApplicationController
           render status: 204
         else
           render json: { errors: @contact.errors }, status: 400
-
-          return
         end
       else
         render json: { errors: { api: "Not found" }}, status: 404
-
-        return
       end
-      render json: {errors: { api: 'Not Allowed' }}, status: 405
+      return
     end
+
+    render json: {errors: { api: 'Not Allowed' }}, status: 405
   end
 
   private
