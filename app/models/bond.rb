@@ -9,12 +9,14 @@ class Bond < Product
            :bond_value,
            :bond_serial,
            :bond_number,
+           :bond_country,
            :is_copy,
 
            :bond_currency=,
            :bond_value=,
            :bond_serial=,
            :bond_number=,
+           :bond_country=,
            :is_copy=,
            to: :lazily_built_companion
   validates :bond_currency,
