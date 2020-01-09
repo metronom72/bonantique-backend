@@ -8,6 +8,7 @@ class CreateProducts < ActiveRecord::Migration[6.0]
       t.boolean :available, null: false, default: true
       t.integer :amount, null: false, default: 1
       t.string :product_type, null: false
+      t.string :quality
 
       t.timestamps
     end

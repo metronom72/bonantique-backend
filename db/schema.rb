@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 2019_12_29_194133) do
     t.boolean "available", default: true, null: false
     t.integer "amount", default: 1, null: false
     t.string "product_type", null: false
+    t.string "quality"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
