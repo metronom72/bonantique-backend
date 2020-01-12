@@ -18,7 +18,7 @@ class Bond < Product
            :bond_number=,
            :bond_country=,
            :is_copy=,
-           to: :lazily_built_companion
+           to: :lazily_built_specification
   validates :bond_currency,
             presence: true
   validates :bond_value,
@@ -27,7 +27,7 @@ class Bond < Product
   default_scope { where(available: true) }
 
   private
-  def lazily_built_companion
+  def lazily_built_specification
     specification || build_specification
   end
 end

@@ -2,10 +2,13 @@ class BondsController < ApplicationController
   before_action :admin?, only: [:create]
 
   def create
-    @bond = new Bond(new_bond_params)
+    @bond = Bond.new(new_bond_params)
 
     if @bond.save
-      render json: { data: @bond }, status: 201
+      render json: { data: {
+          bond: @bond,
+          specification: @bond.specification
+      }}, status: 201
     else
       render json: { errors: @bond.errors }, status: 400
     end
@@ -16,7 +19,6 @@ class BondsController < ApplicationController
     params.require(:new_bond).permit(
       :title,
       :description,
-      :prices,
       :valid_till,
       :available,
       :amount,
@@ -25,8 +27,10 @@ class BondsController < ApplicationController
       :bond_value,
       :bond_serial,
       :bond_number,
-      :bond_country,
       :is_copy,
+      :quality,
+      prices: [],
+      bond_country: [],
     )
   end
   def admin?

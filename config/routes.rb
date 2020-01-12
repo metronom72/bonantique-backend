@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   scope :admin, admin: true do
     resources :contacts
     resources :categories
+    resources :bonds
   end
 
   match 'subscribe', to: 'subscription#subscribe', via: [:post]
